@@ -1,0 +1,22 @@
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.list-item>.name{
+    display: flex;
+  
+}
+.list-item>.btn{
+    display: flex; 
+}
+.button-danger, .button-primary {
+    margin-left: 10px;
+}
+
+form > input {
+    height: 30px;
+    width: 400px;
+}
+

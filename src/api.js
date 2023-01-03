@@ -244,4 +244,11 @@ const categories = [
   export function getCategories() {
     return categories.map(({ name, id }) => ({ name, id }));
   }
+
+  export let Todos =[];
+
+  export function setTodosApi(todos){
+    Todos=todos;
+  }
+
   
