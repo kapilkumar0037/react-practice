@@ -1,0 +1,11 @@
+.category-active {
+  color:brown
+}
+
+ul > li >a :hover {
+    color: brown;
+}
+
+.session {
+    padding: 0 40px;
+}

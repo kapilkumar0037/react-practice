@@ -1,42 +1,28 @@
 
 import './App.css';
-import FormPractice from './form/form';
-import CustomHooks from './hooks/custom-hooks';
-import { useState, useEffect } from 'react';
-import DynamicUsers from './dynamic/dynamic-users';
-import { ExampleReducer } from './hooks/use-reducer';
-import { ExampleUseRef } from './hooks/use-ref-ex';
-import { ExampleContext } from './context/use-context';
-import { TreeContext, tree } from './context/context-tut';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/home/home';
+import Parent from './components/parent/parent';
+import About from './components/about/about';
+import Categories from './components/categories/categories';
+import Category from './components/categories/category';
+import Sessions from './components/categories/sessions';
 
 function App() {
-  const [emotion, setEmotion] = useState("Happy");
-  const [secondary, setSecondaryEmotion] = useState("Tired");
-
-  useEffect(() => {
-    console.log(`It's ${emotion} right now`);
-  }, [emotion]);
-  useEffect(() => {
-    console.log(`It's ${secondary} right now`);
-  }, [secondary]);
   return (
     <div className="App">
-      <h1>Current emotion is {emotion}</h1>
-      <button onClick={() => setEmotion('Sad')}>Sad</button>
-      <button onClick={() => setEmotion('Excited')}>Excited</button>
-      <h2>Current secondary emotion is {secondary}</h2>
-      <button onClick={() => setSecondaryEmotion('Energetic')}>Energetic</button>
-      {/* Form */}
-      {/* <FormPractice /><br></br>
-    <label>Custom Hooks</label>
-    <CustomHooks></CustomHooks> */}
-      <label>Dynamic Data</label>
-      <DynamicUsers />
-      <ExampleReducer />
-      <ExampleUseRef />
-      <TreeContext.Provider value={{ tree }}>
-        <ExampleContext />
-      </TreeContext.Provider>
+
+      <Routes>
+        <Route path="/" element={<Parent />}>
+          <Route index element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='categories' element={<Categories />}>
+            <Route path=':catId' element={<Category />}>
+              <Route path=':sessionId' element={<Sessions />} />
+            </Route>
+          </Route>
+        </Route>
+      </Routes>
     </div>
   );
 }

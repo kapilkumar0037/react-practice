@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  padding: 20px 40px;
 }
 
 .App-logo {
@@ -24,8 +30,13 @@
   color: white;
 }
 
-.App-link {
+a {
   color: #61dafb;
+  text-decoration: none;
+}
+
+ul > li {
+  list-style: none;
 }
 
 @keyframes App-logo-spin {
